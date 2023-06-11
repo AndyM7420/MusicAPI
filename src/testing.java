@@ -12,8 +12,10 @@ public class testing extends JFrame {
     public JPanel panel1;
     private JButton button1;
 
-    public testing() throws IOException {
-        URL s=new URL("https://images.genius.com/d022400aad4680759c278a348d5aaa9b.300x300x1.png");
+    public testing() throws IOException, InterruptedException {
+        GeniusAPIConfigure news=new GeniusAPIConfigure();
+        Split n=new Split(news.getResponse());
+        URL s=n.artistPic;
         BufferedImage c= ImageIO.read(s);
         ImageIcon image=new ImageIcon(c);
         button1.setIcon(image);
